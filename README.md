@@ -7,7 +7,7 @@
 
 ## Dash-Board Example
 
-![Dashboard Display](./display_dashboard.png)
+![Dashboard Display](https://drive.google.com/file/d/1PlKputA2VRWny98j0oVJQ4CfaYtuCNnj/view?usp=share_link)
 
 
 ## Requirements
