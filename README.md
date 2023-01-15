@@ -7,7 +7,7 @@
 
 ## Dash-Board Example
 
-![Dashboard Display](display_dashboard.png)
+![Dashboard Display](display_dashboard.png?raw=true)
 
 
 ## Requirements
