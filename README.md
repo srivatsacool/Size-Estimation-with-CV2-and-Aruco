@@ -7,7 +7,7 @@
 
 ## Dash-Board Example
 
-![Dashboard Display](https://drive.google.com/file/d/1PlKputA2VRWny98j0oVJQ4CfaYtuCNnj/view?usp=share_link)
+![Dashboard Display](https://drive.google.com/uc?id=1PlKputA2VRWny98j0oVJQ4CfaYtuCNnj)
 
 
 ## Requirements
@@ -20,7 +20,7 @@ Install all the needed pyhton Library using requirements.txt
 opencv-contrib-python\
 numpy\
 Pillow\
-imutils\      
+imutils\
 streamlit
     
 ## Deployment
