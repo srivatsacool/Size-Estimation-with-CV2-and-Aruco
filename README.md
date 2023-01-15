@@ -5,9 +5,8 @@
 **Aim** :- An end-to-end project of estimating size of different objects in an image , video or webcam . It uses Aruco Marker to identify the depth in the image and OpenCV to process the image and identify objects and displays the size in Cm , In , Ft.
 
 
-## Dash-Board Example
+## DashBoard Example
 
-![](images/display_dashboard.png)
 ## Requirements![dashboard](https://user-images.githubusercontent.com/76219802/212547588-22fa9592-d344-41e2-ad74-e078fbe4a610.png)
 
 
