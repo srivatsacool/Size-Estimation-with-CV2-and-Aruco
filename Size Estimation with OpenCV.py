@@ -131,7 +131,7 @@ if __name__=='__main__':
                 - Detection based on **:blue['OpenCV']**, with help of Aruco marker .
                 - Main reason of using aruco marker is beacuse it can help with the detection of depth in the image.
                 - Detection of **:red[Aruco Marker]** is done via the cv2. aruco submodule (i.e., we don't need additional Python packages).
-                - More details in **:green[GitHub]** Repo :- .
+                - More details in **:green[GitHub]** Repo :- https://github.com/srivatsacool/Size-Estimation-with-CV2-and-Aruco.
                 """)
     
     dis1_img = Image.open('images/dis_1.png')
