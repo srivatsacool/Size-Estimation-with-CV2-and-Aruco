@@ -20,7 +20,7 @@ Install all the needed pyhton Library using requirements.txt
 opencv-contrib-python\
 numpy\
 Pillow\
-imutils\
+imutils\      
 streamlit
     
 ## Deployment
