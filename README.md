@@ -7,7 +7,7 @@
 
 ## Dash-Board Example
 
-![Dashboard Display](/Size-Estimation-with-CV2-and-Aruco/display_dashboard.png)
+![Dashboard Display](display_dashboard.png)
 
 
 ## Requirements
