@@ -25,9 +25,10 @@ def img_pre_process(img):
     cnts = imutils.grab_contours(cnts)
     # sort the contours from left-to-right and initialize the
     (cnts, _) = contours.sort_contours(cnts)
-    dis3.image = edged
-    #cv2.imshow('processsed img' , edged)
-    #print(cnts,_)
+    dis3.image(edged)
+    # cv2.imshow('processsed img' , edged)
+    
+    # print(cnts,_)
     return cnts
     
 def ArucoMarker(img , size_of_one_side = 5 , total_markers = 50 , draw = True):
@@ -42,8 +43,9 @@ def ArucoMarker(img , size_of_one_side = 5 , total_markers = 50 , draw = True):
     bboxs, ids, rejected = cv2.aruco.detectMarkers(gray, arucoDict, parameters = arucoParam)
     corners = np.intp(bboxs)
     if draw ==True:
-        dis2.image = cv2.polylines(img, corners, True, (0, 255, 0), 7)
-       # cv2.imshow('marker',cv2.polylines(img, corners, True, (0, 255, 0), 7))
+        marker_img = cv2.polylines(img, corners, True, (0, 255, 0), 7)
+        dis2.image(marker_img)
+        # cv2.imshow('marker', marker_img )
     
     return  corners
  
@@ -80,20 +82,69 @@ def process_img(img , MARKER_SIDE_SIZE , TOT_NO_MARKERS, SHOW_MARKER ,MESUREMENT
             box = cv2.boxPoints(rect)
             box = np.intp(box)
             
-            cv2.circle(img, (int(x), int(y)), 5, (0, 0, 255), -1)
-            cv2.polylines(img, [box], True, (255, 0, 0), 2)
-            cv2.putText(img, "Width {} {}cm".format(round(object_width, 1) ,  MESUREMENT_TYPE.split(" ")[-1]), (int(x - 100), int(y - 20)), cv2.FONT_HERSHEY_PLAIN, 2, (100, 200, 0), 2)
-            cv2.putText(img, "Height {} {}cm".format(round(object_height, 1) ,  MESUREMENT_TYPE.split(" ")[-1] ), (int(x - 100), int(y + 15)), cv2.FONT_HERSHEY_PLAIN, 2, (100, 200, 0), 2)
-            dis1.image = img
-            #cv2.imshow('result' , img) 
+            img = cv2.circle(img, (int(x), int(y)), 5, (0, 0, 255), -1)
+            img = cv2.polylines(img, [box], True, (255, 0, 0), 2)
+            img = cv2.putText(img, "Width {} {}".format(round(object_width, 1) ,  MESUREMENT_TYPE.split(" ")[-1]), (int(x - 100), int(y - 20)), cv2.FONT_HERSHEY_PLAIN, 2, (100, 200, 0), 2)
+            img = cv2.putText(img, "Height {} {}".format(round(object_height, 1) ,  MESUREMENT_TYPE.split(" ")[-1] ), (int(x - 100), int(y + 15)), cv2.FONT_HERSHEY_PLAIN, 2, (100, 200, 0), 2)
+            dis1.image(img)
+            # cv2.imshow('result' , img)
+            # cv2.waitKey(0)
+
 
 if __name__=='__main__':
     
     
-    dis1 = st.image(Image.open('dis1.png'))
-    dis2 = st.image(Image.open('dis2.png'))
-    dis3 = st.image(Image.open('dis3.png'))
+    st.markdown("""
+            <style>
+                .sidebar .sidebar-content {
+                    width: 375px;
+                }
+                .big-font {
+                    font-size:80px;
+                    font-weight : 1000;
+                }
+                .small-font {
+                    font-size:40px;
+                    font-weight : 700;
+                    color : #b3b3b3 ; 
+                }
+                .MuiGrid-item{
+                    font-size:19px;
+                }
+                .css-1yy6isu p{
+                    font-size:25px;
+                }
+                .st-dx{
+                    font-size :18px;
+                }
+                .css-1fv8s86 p{
+                    font-size:18px;
+                }
+            </style>""", unsafe_allow_html=True)
+
+    st.markdown('<p ><center class="big-font">Size Estimation with Aruco marker and OpenCV</center></p>', unsafe_allow_html=True)
+    st.markdown('<p ><center class="small-font">Made by :- Srivatsa Gorti</center></p>', unsafe_allow_html=True)
+    st.markdown("""---""")
+    # st.markdown('<p> My GitHub 📖: https://github.com/srivatsacool </p>', unsafe_allow_html=True)
+    st.subheader("Breif Description :")
+    st.markdown("""
+                - Detection based on **:blue['OpenCV']**, with help of Aruco marker .
+                - Main reason of using aruco marker is beacuse it can help with the detection of depth in the image.
+                - Detection of **:red[Aruco Marker]** is done via the cv2. aruco submodule (i.e., we don't need additional Python packages).
+                - More details in **:green[GitHub]** Repo :- .
+                """)
     
+    dis1_img = Image.open('images/dis_1.png')
+    dis2_img = Image.open('images/dis2.png')
+    dis3_img = Image.open('images/dis3.png')
+    
+    col1, col2 = st.columns([3, 1])
+    dis1 = col1.image(dis1_img)
+    col2.text("Aruco Marker Detector :")
+    dis2 = col2.image(dis2_img)
+    col2.markdown("""---""")
+    col2.text("Contour Processed Image :")
+    dis3 = col2.image(dis3_img)
     
     with st.sidebar:
         FILE_TYPE = st.radio("Detection On :-",('Image', 'Video' , "Webcam"))
@@ -102,7 +153,7 @@ if __name__=='__main__':
         st.markdown("""---""")
         SOURCE = "phone_aruco_marker.jpg"
         UPLOAD = st.file_uploader("Choose a file (Supports only .mp4 , .jpg )" , type = ['jpg','mp4'])
-        EXAMPLES = st.selectbox('How would you like to be contacted?',options = ("phone_aruco_marker.jpg" ,'Email', 'Home phone', 'Mobile phone') , index = 0)
+        EXAMPLES = st.selectbox('How would you like to be contacted?',options = ("phone_aruco_marker.jpg" ,'phone.jpg', 'Home phone', 'Mobile phone') , index = 0)
         if UPLOAD != None:
             if FILE_TYPE=='Image':
                 st.image(UPLOAD)
@@ -125,8 +176,14 @@ if __name__=='__main__':
         TOT_NO_MARKERS =  st.slider("Number of Aruco Marker : ", min_value = 0, max_value=200, value=50, step=10)
         
         
+    st.markdown("----", unsafe_allow_html=True)
+    columns = st.columns((2, 1, 2))
+    STARTING_POINT = columns[1].button('Start !!')
+    # if FILE_TYPE =="Video":
+    #     FPS = st.text("To see the FPS , press 'Start' !!")
+    st.markdown("----", unsafe_allow_html=True)
     
-    if st.button("START"):
+    if STARTING_POINT:
         if FILE_TYPE =='Image':
             img = cv2.imread(SOURCE)
             process_img(img , MARKER_SIDE_SIZE , TOT_NO_MARKERS, SHOW_MARKER , MESUREMENT_TYPE)
@@ -145,6 +202,7 @@ if __name__=='__main__':
             cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 720) 
             while True:
                 _,img = cap.read()
-                process_img(img , MARKER_SIDE_SIZE , TOT_NO_MARKERS, SHOW_MARKER,MESUREMENT_TYPE)    
-        cv2.waitKey(0)
-        cv2.destroyAllWindows()
+                process_img(img , MARKER_SIDE_SIZE , TOT_NO_MARKERS, SHOW_MARKER, MESUREMENT_TYPE)    
+                
+cv2.destroyAllWindows()
+            
