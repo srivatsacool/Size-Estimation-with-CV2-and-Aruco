@@ -30,7 +30,7 @@ streamlit
 - Open Git Bash.
 
 - Change the current working directory to the location where you want the cloned directory.
-- Copy the URL from the repository . 
+- Copy the URL from the repository.
 ![Dashboard Image](https://docs.github.com/assets/cb-33207/images/help/repository/https-url-clone-cli.png)
 - Type `git clone` , and then paste the copied URL of the repository
 - Clone the repository :
