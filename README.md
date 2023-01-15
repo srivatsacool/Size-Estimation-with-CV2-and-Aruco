@@ -7,7 +7,7 @@
 
 ## Dash-Board Example
 
-![Dashboard Display](https://drive.google.com/uc?id=1PlKputA2VRWny98j0oVJQ4CfaYtuCNnj)
+![Dashboard Display](images/display_dashboard.png)
 
 
 ## Requirements
