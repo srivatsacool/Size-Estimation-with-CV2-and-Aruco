@@ -8,9 +8,8 @@
 ## Dash-Board Example
 
 ![](images/display_dashboard.png)
+## Requirements![dashboard](https://user-images.githubusercontent.com/76219802/212547588-22fa9592-d344-41e2-ad74-e078fbe4a610.png)
 
-
-## Requirements
 
 Install all the needed pyhton Library using requirements.txt 
 
