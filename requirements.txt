@@ -5,4 +5,4 @@ numpy
 Pillow
 imutils
 streamlit
-libxrender-dev
+
