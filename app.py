@@ -166,6 +166,7 @@ if __name__=='__main__':
                 SOURCE = 0 
         else:
             SOURCE = EXAMPLES
+            st.text(SOURCE)
             if FILE_TYPE=='Image':
                 st.image(SOURCE)
             elif FILE_TYPE =='Video':
