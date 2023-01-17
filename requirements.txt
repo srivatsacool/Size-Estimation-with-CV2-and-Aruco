@@ -5,6 +5,4 @@ numpy
 Pillow
 imutils
 streamlit
-
-libxext6
 libxrender-dev
