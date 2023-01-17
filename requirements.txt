@@ -4,4 +4,6 @@ numpy
 Pillow
 imutils
 streamlit
-
+ffmpeg
+libsm6
+libxext6
