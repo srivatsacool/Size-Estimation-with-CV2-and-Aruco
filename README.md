@@ -1,48 +1,75 @@
+# Object Size Estimation with OpenCV & ArUco Markers
 
-# **Size Estimation with OpenCV and Aruco Marker**
-#### Made by :- Srivatsa Gorti
+<p align="center">
+  <img src="assets/hero.png" alt="Size Estimation Hero Banner" width="100%" />
+</p>
 
-**Aim** :- An end-to-end project of estimating size of different objects in an image , video or webcam . It uses Aruco Marker to identify the depth in the image and OpenCV to process the image and identify objects and displays the size in Cm , In , Ft.
+## Overview
 
+An end-to-end computer vision project that **estimates the real-world dimensions of objects** from images, video, or a live webcam feed. By using an **ArUco marker** as a known-size reference, the system calculates depth and scale, then measures objects in **centimeters, inches, and feet** using OpenCV contour detection.
 
-## Dash-Board Example
-Link : https://srivatsacool-size-estimation-with-cv2-and-aruco-app-k04nek.streamlit.app/
-![Dashboard Display](https://drive.google.com/uc?id=1PlKputA2VRWny98j0oVJQ4CfaYtuCNnj)
+---
 
+## Live Demo
 
-## Requirements
+🔗 **Try it out:** [Streamlit App](https://srivatsacool-size-estimation-with-cv2-and-aruco-app-k04nek.streamlit.app/)
 
-Install all the needed pyhton Library using requirements.txt 
+---
 
+## Key Features
+
+- **Multi-input support** — Works with static images, video files, and live webcam
+- **ArUco-based calibration** — Uses marker as a reference for accurate real-world measurements
+- **Multiple units** — Displays measurements in cm, inches, and feet
+- **OpenCV-powered** — Contour detection and image processing pipeline
+- **Interactive UI** — Streamlit dashboard for easy interaction
+
+---
+
+## Technology Stack
+
+| Technology | Purpose |
+|---|---|
+| Python 3 | Core language |
+| OpenCV (contrib) | Image processing & ArUco detection |
+| NumPy | Numerical computations |
+| Pillow | Image handling |
+| imutils | Image utility functions |
+| Streamlit | Web application interface |
+
+---
+
+## How It Works
+
+```text
+Input (Image / Video / Webcam)
+        ↓
+ArUco Marker Detection
+        ↓
+Scale Calibration (px → real units)
+        ↓
+Object Contour Detection
+        ↓
+Dimension Calculation
+        ↓
+Annotated Output with Measurements
 ```
-  pip install requirements.txt
-```
-opencv-contrib-python\
-numpy\
-Pillow\
-imutils\
-streamlit
-    
-## Deployment
 
+---
 
+## Installation & Setup
 
-- Open Git Bash.
-
-- Change the current working directory to the location where you want the cloned directory.
-- Copy the URL from the repository.  
-
-![Dashboard Image](https://docs.github.com/assets/cb-33207/images/help/repository/https-url-clone-cli.png)
-- Type `git clone` , and then paste the copied URL of the repository
-- Clone the repository :
-
-```cmd
-   $ git clone https://github.com/srivatsacool/Size-Estimation-with-CV2-and-Aruco
+```bash
+git clone https://github.com/srivatsacool/Size-Estimation-with-CV2-and-Aruco
+cd Size-Estimation-with-CV2-and-Aruco
+pip install -r requirements.txt
+streamlit run app.py
 ```
 
-To deploy this project run  :
+---
 
-```cmd
-   streamlit run '.\Size Estimation with OpenCV and Aruco Marker.py'
-```
+## Author
 
+**Srivatsa Gorti**
+
+---
